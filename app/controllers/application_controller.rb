@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
-  include UsersHelper
+  # include UsersHelper
 
   respond_to :json
 
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:email, :password)}
+    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:email, :password, :first_name, :last_name, :phone, :birthdate, :gender)}
     devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:email, :password)}
   end
 end
