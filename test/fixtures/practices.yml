@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-06-16
+  starting_hour: 2020-06-16
+  duration: 2020-06-16 12:07:41
+  address: MyString
+  zip_code: 1
+  city: MyString
+
+two:
+  date: 2020-06-16
+  starting_hour: 2020-06-16
+  duration: 2020-06-16 12:07:41
+  address: MyString
+  zip_code: 1
+  city: MyString
