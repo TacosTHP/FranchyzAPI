@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
-  # include UsersHelper
+  include UsersHelper
 
   respond_to :json
 
