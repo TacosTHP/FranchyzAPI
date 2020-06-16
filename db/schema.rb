@@ -43,9 +43,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_100741) do
   end
 
   create_table "practices", force: :cascade do |t|
-    t.date "date"
-    t.date "starting_hour"
-    t.time "duration"
+    t.datetime "starting_date_time"
+    t.integer "duration"
     t.string "address"
     t.integer "zip_code"
     t.string "city"
