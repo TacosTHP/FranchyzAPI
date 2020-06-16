@@ -315,6 +315,8 @@ Devise.setup do |config|
     jwt.dispatch_requests = [
       ['POST', %r{^/coaches/sign_in.json$}],
       ['POST', %r{^/coaches.json$}],
+      ['POST', %r{^/players/sign_in.json$}],
+      ['POST', %r{^/players.json$}],
     ]
 
     jwt.revocation_requests = [
