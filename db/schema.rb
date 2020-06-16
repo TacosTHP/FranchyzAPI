@@ -11,9 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+ActiveRecord::Schema.define(version: 2020_06_16_100741) do
 
 
-ActiveRecord::Schema.define(version: 2020_06_16_093855) do
+
+
+
+
 
 
   # These are extensions that must be enabled in order to support this database
@@ -54,6 +58,13 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
   end
 
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "long_description"
@@ -75,6 +86,17 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  end
+
+
+  create_table "practices", force: :cascade do |t|
+    t.datetime "starting_date_time"
+    t.integer "duration"
+    t.string "address"
+    t.integer "zip_code"
+    t.string "city"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 
