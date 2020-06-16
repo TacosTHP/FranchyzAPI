@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
   end
 
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.text "long_description"
+    t.string "street"
+    t.string "street_number"
+    t.string "country"
+    t.string "zip_code"
+    t.datetime "starting_date_time"
+    t.integer "duration"
+    t.integer "home_team_score"
+    t.integer "away_team_score"
+    t.boolean "canceled"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "created_at", precision: 6, null: false
