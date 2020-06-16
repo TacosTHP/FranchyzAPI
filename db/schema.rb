@@ -15,6 +15,23 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "clubs", force: :cascade do |t|
+    t.string "name"
+    t.string "logo_url"
+    t.string "address"
+    t.string "zip_code"
+    t.text "description"
+    t.string "city"
+    t.date "date_of_creation"
+    t.string "league"
+    t.string "conference"
+    t.string "pool"
+    t.bigint "creator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_clubs_on_creator_id"
+  end
+
   create_table "coaches", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,5 +94,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "clubs", "coaches", column: "creator_id"
 
 end

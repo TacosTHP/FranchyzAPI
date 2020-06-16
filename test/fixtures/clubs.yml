@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  zip_code: MyString
+  description: MyText
+  city: MyString
+  date_of_creation: 2020-06-16
+  league: MyString
+  conference: MyString
+  pool: MyString
+
+two:
+  name: MyString
+  address: MyString
+  zip_code: MyString
+  description: MyText
+  city: MyString
+  date_of_creation: 2020-06-16
+  league: MyString
+  conference: MyString
+  pool: MyString
