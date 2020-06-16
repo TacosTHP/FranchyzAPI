@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateCoaches < ActiveRecord::Migration[6.0]
+class DeviseCreatePlayers < ActiveRecord::Migration[6.0]
   def change
-    create_table :coaches do |t|
+    create_table :players do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -13,8 +13,13 @@ class DeviseCreateCoaches < ActiveRecord::Migration[6.0]
       t.string :phone
       t.date :birthdate
       t.date :arrival
-      t.boolean :admin?
-      # t.belongs_to :club
+      t.boolean :availiability?
+      t.integer :height
+      t.integer :weight
+      t.integer :jersey_number
+      t.string :position
+      # t.belongs_to :team
+
 
       ## Recoverable
       t.string   :reset_password_token
@@ -45,9 +50,9 @@ class DeviseCreateCoaches < ActiveRecord::Migration[6.0]
       t.timestamps null: false
     end
 
-    add_index :coaches, :email,                unique: true
-    add_index :coaches, :reset_password_token, unique: true
-    # add_index :coaches, :confirmation_token,   unique: true
-    # add_index :coaches, :unlock_token,         unique: true
+    add_index :players, :email,                unique: true
+    add_index :players, :reset_password_token, unique: true
+    # add_index :players, :confirmation_token,   unique: true
+    # add_index :players, :unlock_token,         unique: true
   end
 end
