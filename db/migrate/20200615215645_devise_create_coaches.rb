@@ -7,6 +7,15 @@ class DeviseCreateCoaches < ActiveRecord::Migration[6.0]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      ## Attributes
+      t.string :first_name
+      t.string :last_name
+      t.string :phone
+      t.date :birthdate
+      t.date :arrival
+      t.boolean :admin?
+      # t.belongs_to :club
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
