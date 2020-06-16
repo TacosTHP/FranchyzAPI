@@ -8,17 +8,18 @@ class DeviseCreatePlayers < ActiveRecord::Migration[6.0]
       t.string :encrypted_password, null: false, default: ""
 
       ## Attributes
-      t.string :first_name
-      t.string :last_name
-      t.string :phone
-      t.date :birthdate
-      t.date :arrival
-      t.boolean :availiability?
-      t.integer :height
-      t.integer :weight
-      t.integer :jersey_number
-      t.string :position
-      t.belongs_to :team
+      t.string      :first_name
+      t.string      :last_name
+      t.string      :phone
+      t.date        :birthdate
+      t.date        :arrival
+      t.boolean     :availability?, default: true
+      t.integer     :height
+      t.integer     :weight
+      t.string      :gender
+      t.integer     :jersey_number
+      t.string      :position
+      t.belongs_to  :team
 
 
       ## Recoverable
