@@ -12,7 +12,7 @@ class CreateClubs < ActiveRecord::Migration[6.0]
       t.string :conference
       t.string :pool
 
-
+      t.belongs_to :creator, index: true, foreign_key: {to_table: :coaches}
 
       t.timestamps
     end
