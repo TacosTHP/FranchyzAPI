@@ -192,11 +192,7 @@ DEPENDENCIES
   byebug
   devise-jwt (~> 0.6.0)
   dotenv-rails
-
   jbuilder (~> 2.6)
-
-
-
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
