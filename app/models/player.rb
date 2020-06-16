@@ -6,7 +6,7 @@ class Player < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
 
-  # belongs_to :team
+  belongs_to :team
   has_many :emergency_contacts
   # has_many :games, through: :event
   # has_many :practices, through: :event

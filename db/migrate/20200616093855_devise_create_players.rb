@@ -18,7 +18,7 @@ class DeviseCreatePlayers < ActiveRecord::Migration[6.0]
       t.integer :weight
       t.integer :jersey_number
       t.string :position
-      # t.belongs_to :team
+      t.belongs_to :team
 
 
       ## Recoverable
