@@ -6,7 +6,6 @@ class CreatePractices < ActiveRecord::Migration[6.0]
       t.string 		:address
       t.integer 	:zip_code
       t.string 		:city
-
       t.timestamps
     end
   end

@@ -9,5 +9,5 @@ class Player < ApplicationRecord
   belongs_to :team
   has_many :emergency_contacts
   has_many :games, through: :event
-  # has_many :practices, through: :event
+  has_many :practices, through: :event
 end
