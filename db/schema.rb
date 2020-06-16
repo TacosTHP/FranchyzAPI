@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_093855) do
+ActiveRecord::Schema.define(version: 2020_06_16_100741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clubs", force: :cascade do |t|
+    t.string "name"
+    t.string "logo_url"
+    t.string "address"
+    t.string "zip_code"
+    t.text "description"
+    t.string "city"
+    t.date "date_of_creation"
+    t.string "league"
+    t.string "conference"
+    t.string "pool"
+    t.bigint "creator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_clubs_on_creator_id"
+  end
 
   create_table "coaches", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +42,14 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_coaches_on_email", unique: true
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
+  end
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "games", force: :cascade do |t|
@@ -72,4 +97,26 @@ ActiveRecord::Schema.define(version: 2020_06_16_093855) do
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
+  create_table "practices", force: :cascade do |t|
+    t.datetime "starting_date_time"
+    t.integer "duration"
+    t.string "address"
+    t.integer "zip_code"
+    t.string "city"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "title"
+    t.bigint "coach_id"
+    t.bigint "creator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_teams_on_coach_id"
+    t.index ["creator_id"], name: "index_teams_on_creator_id"
+  end
+
+  add_foreign_key "clubs", "coaches", column: "creator_id"
+  add_foreign_key "teams", "coaches", column: "creator_id"
 end

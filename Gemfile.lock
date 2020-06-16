@@ -126,7 +126,7 @@ GEM
     pg (1.2.3)
     puma (4.3.5)
       nio4r (~> 2.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-test (1.1.0)
@@ -200,7 +200,7 @@ DEPENDENCIES
   devise-jwt (~> 0.6.0)
   dotenv-rails
   faker!
-  jbuilder (~> 2.7)
+  jbuilder (~> 2.6)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
