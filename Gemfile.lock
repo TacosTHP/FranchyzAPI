@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 9b0c36987067f9db792dbb30e4d4322bb3a66157
+  branch: master
+  specs:
+    faker (2.12.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -167,7 +175,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    table_print (1.5.6)
     thor (1.0.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
@@ -192,6 +199,7 @@ DEPENDENCIES
   byebug
   devise-jwt (~> 0.6.0)
   dotenv-rails
+  faker!
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -200,7 +208,6 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
-  table_print (~> 1.5, >= 1.5.6)
   tzinfo-data
 
 RUBY VERSION
