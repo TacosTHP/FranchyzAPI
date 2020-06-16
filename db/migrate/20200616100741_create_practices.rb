@@ -10,8 +10,7 @@ class CreatePractices < ActiveRecord::Migration[6.0]
       t.string   :zip_code
     	t.datetime :starting_date_time
       t.integer	 :duration
-      t.integer  :zip_code
-      .boolean   :canceled
+      t.boolean   :canceled
       t.timestamps
     end
   end

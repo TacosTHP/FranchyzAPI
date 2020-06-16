@@ -3,8 +3,10 @@ class CreateClubs < ActiveRecord::Migration[6.0]
     create_table :clubs do |t|
       t.string  :name
       t.string  :logo_url
-      t.string  :address
       t.string  :zip_code
+      t.string  :street
+      t.string  :street_number
+      t.string  :country
       t.text    :description
       t.string  :city
       t.date    :date_of_creation
