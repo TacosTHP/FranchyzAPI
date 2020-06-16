@@ -4,13 +4,13 @@ class GamesController < ApplicationController
   # GET /games
   def index
     @games = Game.all
-    render json: @games
+    # render json: @games
   end
 
   # GET /games/1
   def show
     @game
-    render json: @game
+  #  render json: @game
   end
 
     # GET /mygames
