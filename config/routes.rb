@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :players
   devise_for :coaches
-  
+
   resources :coaches
   resources :clubs do
     resources :teams do
+      resources :events
       resources :practices
       resources :games
       resources :players do
