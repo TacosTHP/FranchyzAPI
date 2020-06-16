@@ -14,13 +14,13 @@ class GamesController < ApplicationController
   end
 
     # GET /mygames
-    # def mygames
+    def mygames
     
-    #   id = @decoded_token[0]['sub']
-    #   type = @decoded_token[0]['scp']
-    #   @my_games = Game.get_my_games(id, type)
-    #   render json: @my_games
-    # end
+      # id = @decoded_token[0]['sub']
+      # type = @decoded_token[0]['scp']
+      # @my_games = Game.get_my_games(id, type)
+      render json: @my_games
+    end
 
   # POST /games
   def create
