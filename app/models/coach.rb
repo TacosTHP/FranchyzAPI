@@ -6,6 +6,10 @@ class Coach < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
 
+
+  has_many :teams
+
   # belongs_to :club, optional: true
-  # has_many :teams, optional: true
+
+
 end
