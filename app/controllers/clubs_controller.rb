@@ -1,6 +1,10 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :update, :destroy]
 
+  before_action :check_auth, only: [:create, :edit, :update, :delete]
+  before_action :decode_token, only: [:create, :edit, :update, :delete]
+  before_action :check_admin, only: [:create, :edit, :update, :delete]
+
   # GET /clubs
   def index
     @clubs = Club.all
@@ -8,7 +12,7 @@ class ClubsController < ApplicationController
     render json: @clubs
   end
 
-  # GET /clubs/1
+  # GET /clubs/1 
   def show
     render json: @club
   end
