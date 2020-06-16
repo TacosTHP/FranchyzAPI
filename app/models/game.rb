@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
-    # has_many :events
-    # has_many :players, through: :events
+    has_many :events
+    has_many :players, through: :events
 
 
   def self.get_my_games(id, type)

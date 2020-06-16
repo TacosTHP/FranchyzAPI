@@ -9,7 +9,7 @@ class Coach < ApplicationRecord
 
   has_many :teams
 
-  # belongs_to :club, optional: true
+  belongs_to :club, optional: true
 
 
 end

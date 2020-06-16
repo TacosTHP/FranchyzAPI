@@ -4,8 +4,7 @@ class CreateEmergencyContacts < ActiveRecord::Migration[6.0]
       t.string 			:first_name
       t.string 			:last_name
       t.string 			:phone_number
-      # t.belongs_to 	:player
-
+      t.belongs_to 	:player
       t.timestamps
     end
   end

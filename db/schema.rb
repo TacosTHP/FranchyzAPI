@@ -41,11 +41,13 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.date "birthdate"
     t.date "arrival"
     t.boolean "admin?"
+    t.bigint "club_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_coaches_on_club_id"
     t.index ["email"], name: "index_coaches_on_email", unique: true
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
   end
@@ -54,8 +56,21 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
+    t.bigint "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_emergency_contacts_on_player_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "game_id"
+    t.bigint "practice_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_events_on_game_id"
+    t.index ["player_id"], name: "index_events_on_player_id"
+    t.index ["practice_id"], name: "index_events_on_practice_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -99,6 +114,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.integer "weight"
     t.integer "jersey_number"
     t.string "position"
+    t.bigint "team_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -106,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "practices", force: :cascade do |t|
@@ -122,8 +139,10 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.string "title"
     t.bigint "coach_id"
     t.bigint "creator_id"
+    t.bigint "club_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_teams_on_club_id"
     t.index ["coach_id"], name: "index_teams_on_coach_id"
     t.index ["creator_id"], name: "index_teams_on_creator_id"
   end

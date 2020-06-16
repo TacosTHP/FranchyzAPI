@@ -14,7 +14,7 @@ class DeviseCreateCoaches < ActiveRecord::Migration[6.0]
       t.date :birthdate
       t.date :arrival
       t.boolean :admin?
-      # t.belongs_to :club
+      t.belongs_to :club
 
       ## Recoverable
       t.string   :reset_password_token
