@@ -1,13 +1,12 @@
 require 'faker'
-
-Player.destroy_all
-Coach.destroy_all
-Game.destroy_all
 Team.destroy_all
 Club.destroy_all
+Coach.destroy_all
+Player.destroy_all
+Game.destroy_all
 Practice.destroy_all
-Event.destroy_all
 EmergencyContact.destroy_all
+Event.destroy_all
 
 puts "Destruction of BDD done"
 
@@ -70,28 +69,6 @@ street_number: Faker::Number.between(from: 0, to: 100), country: "US", descripti
   puts "Events have been created"
 
   5.times do
-    Event.create!(player: Player.all.sample, game: Game.all.sample)
-   # , practice: Practice.all.sample
+    Event.create!(player: Player.all.sample, game: Game.all.sample, practice: Practice.all.sample) 
+    
   end
-
-
-  #   2.times do
-# # coach = Coach.all.sample
-# #     if coach.admin? == true 
-#     Club.create!(name: Faker::Sports::Football.team, creator: Coach.all.sample, logo_url: "logo", zip_code: Faker::Address.zip_code, street: Faker::Address.street_name, 
-#     street_number: Faker::Number.between(from: 0, to: 100), country: "France", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
-# #   end
-# end
-
-#   2.times do
-#     Coach.create!(email: Faker::Internet.email, password: "password", first_name: Faker::Name.male_first_name, admin?: true)
-#   end
-#   puts "Coaches admin have been created"
-
-
-
-# first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name,
-# phone: Faker::PhoneNumber.cell_phone
-# birthdate: Faker::Date.birthday(min_age: 20, max_age: 79)
-# arrival: Faker::Date.backward(days: 60)
-# admin?: Faker::Boolean.boolean
