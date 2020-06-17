@@ -3,8 +3,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
     create_table :games do |t|
       t.string   :title
       t.text     :long_description
-      t.string   :street
-      t.string   :street_number
+      t.string   :address
       t.string   :city
       t.string   :country
       t.string   :zip_code

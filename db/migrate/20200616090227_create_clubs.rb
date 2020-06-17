@@ -4,8 +4,7 @@ class CreateClubs < ActiveRecord::Migration[6.0]
       t.string  :name
       t.string  :logo_url
       t.string  :zip_code
-      t.string  :street
-      t.string  :street_number
+      t.string  :address
       t.string  :country
       t.text    :description
       t.string  :city
