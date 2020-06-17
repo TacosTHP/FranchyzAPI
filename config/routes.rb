@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :players
   devise_for :coaches
 
-  resources :coaches
+  resources :coaches, except:[:new, :create]
   resources :clubs do
     resources :teams do
       resources :events
