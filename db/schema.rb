@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "logo_url"
-    t.string "address"
     t.string "zip_code"
+    t.string "address"
+    t.string "country"
     t.text "description"
     t.string "city"
     t.date "date_of_creation"
@@ -76,8 +77,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "long_description"
-    t.string "street"
-    t.string "street_number"
+    t.string "address"
+    t.string "city"
     t.string "country"
     t.string "zip_code"
     t.datetime "starting_date_time"
@@ -104,9 +105,10 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.string "phone"
     t.date "birthdate"
     t.date "arrival"
-    t.boolean "availiability?"
+    t.boolean "availability?", default: true
     t.integer "height"
     t.integer "weight"
+    t.string "gender"
     t.integer "jersey_number"
     t.string "position"
     t.bigint "team_id"
@@ -121,11 +123,15 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
   end
 
   create_table "practices", force: :cascade do |t|
+    t.string "title"
+    t.text "long_description"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.string "zip_code"
     t.datetime "starting_date_time"
     t.integer "duration"
-    t.string "address"
-    t.integer "zip_code"
-    t.string "city"
+    t.boolean "canceled"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

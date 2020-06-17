@@ -3,15 +3,13 @@ class CreatePractices < ActiveRecord::Migration[6.0]
     create_table :practices do |t|
       t.string   :title
       t.text     :long_description
-      t.string   :street
-      t.string   :street_number
+      t.string   :address
       t.string   :city
       t.string   :country
       t.string   :zip_code
     	t.datetime :starting_date_time
       t.integer	 :duration
-      t.integer  :zip_code
-      .boolean   :canceled
+      t.boolean  :canceled
       t.timestamps
     end
   end
