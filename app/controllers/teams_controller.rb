@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.all
+    @teams = Team.where(club_id: params[:club_id])
   end
 
   # GET /teams/1
