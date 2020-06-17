@@ -8,13 +8,14 @@ class ClubsController < ApplicationController
   # GET /clubs
   def index
     @clubs = Club.all
-
-    render json: @clubs
   end
 
-  # GET /clubs/1 
+  # GET /clubs/1
   def show
-    render json: @club
+    @club
+    @players = Club.get_players(@club)
+    @games = Club.get_games(@club)
+    @practices = Club.get_practices(@club)
   end
 
   # POST /clubs
