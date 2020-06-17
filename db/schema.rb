@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "logo_url"
-    t.string "address"
     t.string "zip_code"
+    t.string "address"
+    t.string "country"
     t.text "description"
     t.string "city"
     t.date "date_of_creation"
@@ -76,8 +77,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "long_description"
-    t.string "street"
-    t.string "street_number"
+    t.string "address"
     t.string "city"
     t.string "country"
     t.string "zip_code"
@@ -125,8 +125,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
   create_table "practices", force: :cascade do |t|
     t.string "title"
     t.text "long_description"
-    t.string "street"
-    t.string "street_number"
+    t.string "address"
     t.string "city"
     t.string "country"
     t.string "zip_code"
