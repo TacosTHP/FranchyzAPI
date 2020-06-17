@@ -1,9 +1,8 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :update, :destroy]
-
   before_action :check_auth, only: [:create, :edit, :update, :delete]
   before_action :decode_token, only: [:create, :edit, :update, :delete]
   before_action :check_admin, only: [:create, :edit, :update, :delete]
+  before_action :set_club, only: [:show, :update, :destroy]
 
   # GET /clubs
   def index
@@ -41,6 +40,7 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1
   def destroy
     @club.destroy
+    render json: "Resource destroyed"
   end
 
   private
