@@ -11,6 +11,23 @@ class Game < ApplicationRecord
     else
       return 'error'
     end
+  end
 
+  def self.get_team_games(team)
+    players_ids = []
+    team.players.each do |player|
+      players_ids << player.id
+    end
+    games = Game.joins(:players).where(players: {id: players_ids}).distinct
+    return games
+  end
+
+  def self.get_team_practices(team)
+    players_ids = []
+    team.players.each do |player|
+      players_ids << player.id
+    end
+    practices = Practice.joins(:players).where(players: {id: players_ids}).distinct
+    return practices
   end
 end

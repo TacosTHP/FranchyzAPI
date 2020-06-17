@@ -3,12 +3,15 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.all
+    @teams = Team.where(club_id: params[:club_id])
   end
 
   # GET /teams/1
   def show
-    render json: @team
+    @team
+    @games = Game.get_team_games(@team)
+    @practices = Game.get_team_practices(@team)
+    @club = @team.club
   end
 
   # POST /teams
