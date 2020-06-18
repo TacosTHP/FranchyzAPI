@@ -1,26 +1,28 @@
 class GamesController < ApplicationController
+  before_action :check_auth, only: [:show, :mygames, :create, :edit, :update, :delete]
+  before_action :decode_token, only: [:create, :edit, :update, :delete]
+  before_action :check_admin, only: [:create, :edit, :update, :delete]
+
   before_action :set_game, only: [:show, :update, :destroy]
+  before_action :set_team, only: [:index, :show, :update, :destroy]
 
   # GET /games
   def index
-    @games = Game.all
-    # render json: @games
+    @games = Game.get_team_games(@team)
   end
 
   # GET /games/1
   def show
     @game
-  #  render json: @game
+    @teams = Team.get_game_teams(@game)
   end
 
-    # GET /mygames
-    def mygames
-    
-      # id = @decoded_token[0]['sub']
-      # type = @decoded_token[0]['scp']
-      # @my_games = Game.get_my_games(id, type)
-      render json: @my_games
-    end
+  # # GET /mygames
+  # def mygames
+  #   id = @decoded_token[0]['sub']
+  #   type = @decoded_token[0]['scp']
+  #   @my_games = Game.get_my_games(id, type)
+  # end
 
   # POST /games
   def create
@@ -53,6 +55,10 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
+    end
+
+    def set_team
+      @team = Team.find(params[:team_id])
     end
 
     # Only allow a trusted parameter "white list" through.

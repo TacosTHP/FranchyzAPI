@@ -1,20 +1,25 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :update, :destroy]
-
   before_action :check_auth, only: [:create, :edit, :update, :delete]
   before_action :decode_token, only: [:create, :edit, :update, :delete]
   before_action :check_admin, only: [:create, :edit, :update, :delete]
+  before_action :set_club, only: [:show, :update, :destroy]
 
   # GET /clubs
   def index
     @clubs = Club.all
-
-    render json: @clubs
   end
 
-  # GET /clubs/1 
+  # GET /clubs/1
   def show
-    render json: @club
+    @club
+    @players = Club.get_players(@club)
+    @games = Club.get_games(@club)
+    @practices = Club.get_practices(@club)
+  end
+
+  # GET /clubs/1/admin
+  def dashboard_admin
+
   end
 
   # POST /clubs
@@ -40,6 +45,7 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1
   def destroy
     @club.destroy
+    render json: "Resource destroyed"
   end
 
   private

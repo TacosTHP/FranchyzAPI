@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
   def show
     @team
     @games = Game.get_team_games(@team)
-    @practices = Game.get_team_practices(@team)
+    @practices = Practice.get_team_practices(@team)
     @club = @team.club
   end
 
