@@ -17,6 +17,11 @@ class ClubsController < ApplicationController
     @practices = Club.get_practices(@club)
   end
 
+  # GET /clubs/1/admin
+  def dashboard_admin
+
+  end
+
   # POST /clubs
   def create
     @club = Club.new(club_params)

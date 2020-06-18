@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   # => ADDITIONNAL GAMES ROUTES
   get '/mygames',            to: 'games#mygames'
+
+  # => ADDITIONNAL CLUB ROUTES
+  get '/clubs/:id/admin',            to: 'club#dashboard_admin'
 end
