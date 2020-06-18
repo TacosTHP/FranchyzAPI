@@ -11,4 +11,15 @@ class Player < ApplicationRecord
   has_many :events
   has_many :games, through: :events
   has_many :practices, through: :events
+
+  def jwt_payload
+    { 
+      'email' => self.email,
+      'first_name' => self.first_name,
+      'last_name' => self.last_name, 
+      'admin?' => self.admin?, 
+      'team_id' => self.team_id,
+    }
+  end
+
 end
