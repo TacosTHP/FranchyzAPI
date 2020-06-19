@@ -11,5 +11,11 @@ class Coach < ApplicationRecord
 
   belongs_to :club, optional: true
 
+  after_create :welcome_send
+
+  def welcome_send
+    CoachMailer.welcome_email(self).deliver_now
+  end
+
 
 end
