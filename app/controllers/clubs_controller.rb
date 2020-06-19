@@ -1,7 +1,7 @@
 class ClubsController < ApplicationController
-  before_action :check_auth, only: [:create, :edit, :update, :delete]
-  before_action :decode_token, only: [:create, :edit, :update, :delete]
-  before_action :check_admin, only: [:create, :edit, :update, :delete]
+  # before_action :check_auth, only: [:create, :edit, :update, :delete]
+  # before_action :decode_token, only: [:create, :edit, :update, :delete]
+  # before_action :check_admin, only: [:create, :edit, :update, :delete]
   before_action :set_club, only: [:show, :update, :destroy]
 
   # GET /clubs
@@ -56,6 +56,6 @@ class ClubsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def club_params
-      params.require(:club).permit(:name, :address, :zip_code, :description, :city, :date_of_creation, :league, :conference, :pool)
+      params.require(:club).permit(:name, :address, :zip_code, :description, :city, :date_of_creation, :league, :conference, :pool, :country, :creator_id)
     end
 end
