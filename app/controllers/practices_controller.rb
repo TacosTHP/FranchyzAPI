@@ -18,7 +18,7 @@ class PracticesController < ApplicationController
     @practice = Practice.new(practice_params)
 
     if @practice.save
-      render json: @practice, status: :created, location: @practice
+      render json: @practice, status: :created
     else
       render json: @practice.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,7 @@ class PracticesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def practice_params
-      params.require(:practice).permit(:date, :starting_hour, :duration, :address, :zip_code, :city)
+      params.require(:practice).permit(:duration, :address, :zip_code, :city, :title, :long_description, :country, :starting_date_time, :canceled)
     end
 end
+
