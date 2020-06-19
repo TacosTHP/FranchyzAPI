@@ -19,7 +19,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      render json: @team, status: :created, location: @team
+      render json: @team, status: :created
     else
       render json: @team.errors, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class TeamsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def team_params
-      params.require(:team).permit(:title)
+      params.require(:team).permit(:title, :coach_id, :creator_id, :club_id)
     end
 end
