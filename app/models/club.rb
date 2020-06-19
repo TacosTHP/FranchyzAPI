@@ -1,7 +1,7 @@
 class Club < ApplicationRecord
   has_many :coaches
   has_many :teams
-  belongs_to :creator, class_name: 'Coach'
+  has_one :creator, class_name: 'Coach'
 
   def self.get_players(club)
     teams_ids = []
