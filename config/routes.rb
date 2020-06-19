@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :coaches, except:[:new, :create]
   resources :clubs do
     resources :teams do
-      resources :events
       resources :practices
       resources :games
       resources :players do
+        resources :events
         resources :emergency_contacts
       end
     end
