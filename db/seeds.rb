@@ -66,9 +66,8 @@ address: Faker::Address.street_address, country: "US", description: Faker::Lorem
   end
   puts "Emergency contacts have been created"
 
-  puts "Events have been created"
-
   5.times do
     Event.create!(player: Player.all.sample, game: Game.all.sample)
     Event.create!(player: Player.all.sample, practice: Practice.all.sample)
   end
+  puts "Events have been created"
