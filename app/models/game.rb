@@ -10,4 +10,8 @@ class Game < ApplicationRecord
     games = Game.joins(:players).where(players: {id: players_ids}).distinct
     return games
   end
+
+  def self.get_my_attended_games(id)
+    Game.joins(:events).where('player_id = ?', id)
+  end
 end
