@@ -1,8 +1,13 @@
-# Franchyz API
+## Description
 
 Franchyz API is a Ruby on Rails API for a sport team management app.
 
 You should find the React front-end here : https://github.com/TacosTHP/Franchyz
+
+## Version
+
+Ruby 2.7.1
+Rails 6.0.3.1
 
 ## Installation
 
