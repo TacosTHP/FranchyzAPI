@@ -17,8 +17,8 @@ class Player < ApplicationRecord
       'email' => self.email,
       'first_name' => self.first_name,
       'last_name' => self.last_name, 
-      'admin?' => self.admin?, 
       'team_id' => self.team_id,
+      'club_id' => self.team.club.id
     }
   end
 
