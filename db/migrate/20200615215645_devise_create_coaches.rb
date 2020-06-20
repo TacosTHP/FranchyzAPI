@@ -13,7 +13,7 @@ class DeviseCreateCoaches < ActiveRecord::Migration[6.0]
       t.string :phone
       t.date :birthdate
       t.date :arrival
-      t.boolean :admin?
+      t.boolean :admin?, default: false
       t.belongs_to :club
 
       ## Recoverable
