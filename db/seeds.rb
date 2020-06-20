@@ -15,14 +15,16 @@ John = Coach.create!(email: "coach2.fr@yopmail.com", password: "password", first
 Jack = Coach.create!(email: "coach3.fr@yopmail.com", password: "password", first_name: "Jack", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
 puts "Coaches admin have been created"
 
-ClubByJuan =  Club.create!(name: Faker::Sports::Football.team, creator: Juan, logo_url: "logo", zip_code: Faker::Address.zip_code,
+ClubByJuan =  Club.create!(name: Faker::Sports::Football.team, creator: Juan, logo_url: "https://content.sportslogos.net/logos/7/177/full/kwth8f1cfa2sch5xhjjfaof90.png", zip_code: Faker::Address.zip_code,
 address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
 
-ClubByJohn =  Club.create!(name: Faker::Sports::Football.team, creator: John, logo_url: "logo", zip_code: Faker::Address.zip_code,
+ClubByJohn =  Club.create!(name: Faker::Sports::Football.team, creator: John, logo_url: "https://content.sportslogos.net/logos/7/173/full/299.png", zip_code: Faker::Address.zip_code,
 address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
 
+ClubByJack =  Club.create!(name: Faker::Sports::Football.team, creator: Jack, logo_url: "https://content.sportslogos.net/logos/7/153/full/318.png", zip_code: Faker::Address.zip_code,
+  address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
 
-  puts "Clubs have been created"
+puts "Clubs have been created"
 
   5.times do
     Team.create!(title: Faker::Team.name, creator: Coach.all.sample, coach: Coach.all.sample, club: Club.all.sample)
