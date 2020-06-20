@@ -17,14 +17,21 @@ puts "Coaches admin have been created"
 
 ClubByJuan =  Club.create!(name: Faker::Sports::Football.team, creator: Juan, logo_url: "https://content.sportslogos.net/logos/7/177/full/kwth8f1cfa2sch5xhjjfaof90.png", zip_code: Faker::Address.zip_code,
 address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
+Juan.club_id = ClubByJuan.club_id
+Juan.save
 
 ClubByJohn =  Club.create!(name: Faker::Sports::Football.team, creator: John, logo_url: "https://content.sportslogos.net/logos/7/173/full/299.png", zip_code: Faker::Address.zip_code,
 address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
+John.club_id = ClubByJohn.club_id
+John.save
 
 ClubByJack =  Club.create!(name: Faker::Sports::Football.team, creator: Jack, logo_url: "https://content.sportslogos.net/logos/7/153/full/318.png", zip_code: Faker::Address.zip_code, 
 address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
+Jack.club_id = ClubByJack.club_id
+Jack.save
 
 puts "Clubs have been created"
+
 
 3.times do
   Team.create!(title: Faker::Team.name, creator: Juan, coach: Juan, club: ClubByJuan)
