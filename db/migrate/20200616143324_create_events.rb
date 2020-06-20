@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.belongs_to  :player
       t.belongs_to  :game
       t.belongs_to  :practice
-      t.boolean :confirmed?
+      t.boolean :confirmed?, default: false
       t.timestamps
     end
   end
