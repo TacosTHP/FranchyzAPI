@@ -26,11 +26,20 @@ ClubByJack =  Club.create!(name: Faker::Sports::Football.team, creator: Jack, lo
 
 puts "Clubs have been created"
 
-  5.times do
-    Team.create!(title: Faker::Team.name, creator: Coach.all.sample, coach: Coach.all.sample, club: Club.all.sample)
-  end
+3.times do
+  Team.create!(title: Faker::Team.name, creator: Juan, coach: Juan, club: ClubByJuan)
+end
 
-  puts "Teams have been created"
+3.times do
+  Team.create!(title: Faker::Team.name, creator: John, coach: John, club: ClubByJohn)
+end
+
+3.times do
+  Team.create!(title: Faker::Team.name, creator: Jack, coach: Jack, club: ClubByJack)
+end
+
+puts "Teams have been created"
+
 
 5.times do
     Game.create!(title: Faker::Sports::Football.competition, long_description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),
