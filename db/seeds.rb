@@ -10,15 +10,9 @@ Event.destroy_all
 
 puts "Destruction of BDD done"
 
-3.times do
-    Coach.create!(email: Faker::Internet.email, password: "password")
-  end
-
-  puts "Coaches have been created"
-
-
-Juan = Coach.create!(email: Faker::Internet.email, password: "password", first_name: "Juan", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
-John = Coach.create!(email: Faker::Internet.email, password: "password", first_name: "John", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
+Juan = Coach.create!(email: "coach1.fr@yopmail.com", password: "password", first_name: "Juan", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
+John = Coach.create!(email: "coach2.fr@yopmail.com", password: "password", first_name: "John", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
+Jack = Coach.create!(email: "coach3.fr@yopmail.com", password: "password", first_name: "Jack", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
 puts "Coaches admin have been created"
 
 ClubByJuan =  Club.create!(name: Faker::Sports::Football.team, creator: Juan, logo_url: "logo", zip_code: Faker::Address.zip_code,
