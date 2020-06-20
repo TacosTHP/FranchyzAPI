@@ -13,6 +13,7 @@ puts "Destruction of BDD done"
 Juan = Coach.create!(email: "coach1.fr@yopmail.com", password: "password", first_name: "Juan", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
 John = Coach.create!(email: "coach2.fr@yopmail.com", password: "password", first_name: "John", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
 Jack = Coach.create!(email: "coach3.fr@yopmail.com", password: "password", first_name: "Jack", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
+Bob = Coach.create!(email: "coach4.fr@yopmail.com", password: "password", first_name: "Bob", last_name: Faker::Name.last_name, admin?: true, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 20, max_age: 79), arrival: Faker::Date.backward(days: 60))
 puts "Coaches admin have been created"
 
 ClubByJuan =  Club.create!(name: Faker::Sports::Football.team, creator: Juan, logo_url: "https://content.sportslogos.net/logos/7/177/full/kwth8f1cfa2sch5xhjjfaof90.png", zip_code: Faker::Address.zip_code,
@@ -30,6 +31,11 @@ address: Faker::Address.street_address, country: "US", description: Faker::Lorem
 Jack.club_id = ClubByJack.id
 Jack.save
 
+ClubByBob =  Club.create!(name: "OGRES DE CRETEIL", creator: Bob, logo_url: "https://www.les-ogres.com/s/misc/logo.png", zip_code: "94000",
+  address: "14 RUE DES SARRAZINS", country: "FR", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: "CRETEIL", league: "Regional 1", pool: "Unique Pool", conference: "IDF")
+Bob.club_id = ClubByBob.id
+Bob.save
+
 puts "Clubs have been created"
 
 
@@ -43,6 +49,10 @@ end
 
 3.times do
   Team.create!(title: Faker::Team.name, creator: Jack, coach: Jack, club: ClubByJack)
+end
+
+3.times do
+  Team.create!(title: Faker::Team.name, creator: Bob, coach: Bob, club: ClubByBob)
 end
 
 puts "Teams have been created"
@@ -59,7 +69,7 @@ end
 puts "Games have been created"
 
 
-50.times do
+100.times do
   Player.create!(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 15, max_age: 65),
   password: "password", availability?: true, height: Faker::Number.between(from: 170, to: 200), weight: Faker::Number.between(from: 70, to: 90), jersey_number: Faker::Number.between(from: 1, to: 99), position: Faker::Number.between(from: 1, to: 11), arrival: Faker::Date.backward(days: 60), gender: Faker::Gender.short_binary_type, team: Team.all.sample)
 end
