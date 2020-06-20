@@ -13,3 +13,4 @@ json.pool @club.pool
 json.games @games
 json.practices @practices
 json.players @players
+json.teams @teams

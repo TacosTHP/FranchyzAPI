@@ -15,6 +15,7 @@ class ClubsController < ApplicationController
     @players = Club.get_players(@club)
     @games = Club.get_games(@club)
     @practices = Club.get_practices(@club)
+    @teams = @club.teams
   end
 
   # GET /clubs/1/admin
