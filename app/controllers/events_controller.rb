@@ -8,12 +8,20 @@ class EventsController < ApplicationController
     render json: @events
   end
 
-  def mygames
-    @my_games = Game.get_my_attended_games(params[:player_id])
+  def my_attended_games
+    @my_attended_games = Game.get_my_attended_games(params[:player_id])
   end
 
-  def mypractices
-    @my_practices = Practice.get_my_attended_practices(params[:player_id])
+  def my_unattended_games
+    @my_unattended_games = Game.get_my_unattended_games(params[:player_id])
+  end
+
+  def my_attended_practices
+    @my_attended_practices = Practice.get_my_attended_practices(params[:player_id])
+  end
+
+  def my_unattended_practices
+    @my_unattended_practices = Practice.get_my_unattended_practices(params[:player_id])
   end
 
   # GET /events/1

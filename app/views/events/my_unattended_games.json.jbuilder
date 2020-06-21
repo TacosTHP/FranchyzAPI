@@ -1,4 +1,4 @@
-json.array! @my_games do |game|
+json.array! @my_unattended_games do |game|
 
   json.id game.id
   json.title game.title

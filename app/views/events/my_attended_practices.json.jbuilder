@@ -1,4 +1,4 @@
-json.array! @my_practices do |practice|
+json.array! @my_attended_practices do |practice|
 
   json.id practice.id
   json.title practice.title

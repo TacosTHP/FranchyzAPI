@@ -28,7 +28,7 @@ address: Faker::Address.street_address, country: "US", description: Faker::Lorem
 John.club_id = ClubByJohn.id
 John.save
 
-ClubByJack =  Club.create!(name: Faker::Sports::Football.team, creator: Jack, logo_url: "https://content.sportslogos.net/logos/7/153/full/318.png", zip_code: Faker::Address.zip_code, 
+ClubByJack =  Club.create!(name: Faker::Sports::Football.team, creator: Jack, logo_url: "https://content.sportslogos.net/logos/7/153/full/318.png", zip_code: Faker::Address.zip_code,
 address: Faker::Address.street_address, country: "US", description: Faker::Lorem.paragraph_by_chars(number: 600, supplemental: false), city: Faker::Address.city, date_of_creation: Faker::Date.backward(days: 14), league: Faker::Games::LeagueOfLegends.rank, pool: "pool", conference: "conference Sud")
 Jack.club_id = ClubByJack.id
 Jack.save
@@ -63,7 +63,7 @@ puts "Teams have been created"
 15.times do
   Game.create!(title: Faker::Sports::Football.competition, long_description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),
   zip_code: Faker::Address.zip_code, country: "France",
-  address: Faker::Address.street_address, city: Faker::Address.city, starting_date_time: Faker::Date.forward(days: 10),
+  address: Faker::Address.street_address, city: Faker::Address.city, starting_date_time: Faker::Time.forward(days: 7, period: :evening),
   duration: durations.sample, home_team_score: Faker::Number.between(from: 0, to: 100),
   away_team_score: Faker::Number.between(from: 0, to: 100), canceled: Faker::Boolean.boolean(true_ratio: 0.9))
 end
@@ -80,7 +80,7 @@ puts "Players have been created"
 
 
 15.times do
-  Practice.create!(title: "training session", long_description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false), duration: durations.sample, zip_code: Faker::Address.zip_code, city: Faker::Address.city, country: "US", address: Faker::Address.street_address, starting_date_time: Faker::Date.forward(days: 7), canceled: Faker::Boolean.boolean(true_ratio: 0.9))
+  Practice.create!(title: "training session", long_description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false), duration: durations.sample, zip_code: Faker::Address.zip_code, city: Faker::Address.city, country: "US", address: Faker::Address.street_address, starting_date_time: Faker::Time.forward(days: 7, period: :evening), canceled: Faker::Boolean.boolean(true_ratio: 0.9))
 end
 puts "Practices have been created"
 

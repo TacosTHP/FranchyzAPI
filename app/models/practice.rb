@@ -12,6 +12,10 @@ class Practice < ApplicationRecord
   end
 
 	def self.get_my_attended_practices(id)
-    Practice.joins(:events).where('player_id = ?', id)
+    Practice.joins(:events).where(events: { confirmed?: true }).where('player_id = ?', id)
   end
+
+	def self.get_my_unattended_practices(id)
+		Practice.joins(:events).where(events: { confirmed?: false }).where('player_id = ?', id)
+	end
 end
