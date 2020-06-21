@@ -1,4 +1,6 @@
 class ClubsController < ApplicationController
+
+  before_action :authenticate_coach!, only: [:create]
   # before_action :check_auth, only: [:create, :edit, :update, :delete]
   # before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
@@ -27,7 +29,11 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
 
+
+
     if @club.save
+      coach = Coach.find(current_coach.id)
+      coach.update(club_id: @club.id)
       render json: @club, status: :created, location: @club
     else
       render json: @club.errors, status: :unprocessable_entity
