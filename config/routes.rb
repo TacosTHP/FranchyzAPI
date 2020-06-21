@@ -14,12 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
-  # => ADDITIONNAL GAMES ROUTES
-  get '/mygames',            to: 'games#mygames'
-
-  # => ADDITIONNAL CLUB ROUTES
+    # => ADDITIONNAL CLUB ROUTES
   get '/clubs/:id/admin',            to: 'club#dashboard_admin'
 
   # => ADDITIONNAL EVENTS ROUTES
-  get '/clubs/:club_id/teams/:team_id/players/:player_id/myevents',            to: 'events#myevents'
+  get '/clubs/:club_id/teams/:team_id/players/:player_id/mygames',                to: 'events#mygames'
+  get '/clubs/:club_id/teams/:team_id/players/:player_id/mypractices',            to: 'events#mypractices'
 end

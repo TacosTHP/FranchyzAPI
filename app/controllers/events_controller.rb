@@ -8,9 +8,12 @@ class EventsController < ApplicationController
     render json: @events
   end
 
-  def myevents
-    @games = Game.get_my_attended_games(params[:player_id])
-    render json: @games
+  def mygames
+    @my_games = Game.get_my_attended_games(params[:player_id])
+  end
+
+  def mypractices
+    @my_practices = Practice.get_my_attended_practices(params[:player_id])
   end
 
   # GET /events/1

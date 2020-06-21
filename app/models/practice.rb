@@ -10,4 +10,8 @@ class Practice < ApplicationRecord
     practices = Practice.joins(:players).where(players: {id: players_ids}).distinct
     return practices
   end
+
+	def self.get_my_attended_practices(id)
+    Practice.joins(:events).where('player_id = ?', id)
+  end
 end

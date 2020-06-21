@@ -17,13 +17,6 @@ class GamesController < ApplicationController
     @teams = Team.get_game_teams(@game)
   end
 
-  # # GET /mygames
-  # def mygames
-  #   id = @decoded_token[0]['sub']
-  #   type = @decoded_token[0]['scp']
-  #   @my_games = Game.get_my_games(id, type)
-  # end
-
   # POST /games
   def create
     @game = Game.new(game_params)
