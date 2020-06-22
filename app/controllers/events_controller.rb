@@ -8,9 +8,24 @@ class EventsController < ApplicationController
     render json: @events
   end
 
-  def myevents
-    @games = Game.get_my_attended_games(params[:player_id])
-    render json: @games
+  def unconfirmed_events
+    @events = Event.where("player_id = ?", params[:player_id]).where(confirmed?: false)
+  end
+
+  def my_attended_games
+    @my_attended_games = Game.get_my_attended_games(params[:player_id])
+  end
+
+  def my_unattended_games
+    @my_unattended_games = Game.get_my_unattended_games(params[:player_id])
+  end
+
+  def my_attended_practices
+    @my_attended_practices = Practice.get_my_attended_practices(params[:player_id])
+  end
+
+  def my_unattended_practices
+    @my_unattended_practices = Practice.get_my_unattended_practices(params[:player_id])
   end
 
   # GET /events/1
@@ -51,6 +66,8 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:game_id, :player_id)
+
+      params.require(:event).permit(:player_id, :game_id, :practice_id, :confirmed?)
+
     end
 end

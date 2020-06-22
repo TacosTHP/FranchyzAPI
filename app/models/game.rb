@@ -12,6 +12,10 @@ class Game < ApplicationRecord
   end
 
   def self.get_my_attended_games(id)
-    Game.joins(:events).where('player_id = ?', id)
+    Game.joins(:events).where(events: { confirmed?: true }).where('player_id = ?', id)
+  end
+
+  def self.get_my_unattended_games(id)
+    Game.joins(:events).where(events: { confirmed?: false }).where('player_id = ?', id)
   end
 end
