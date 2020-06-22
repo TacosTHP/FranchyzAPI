@@ -8,6 +8,10 @@ class EventsController < ApplicationController
     render json: @events
   end
 
+  def unconfirmed_events
+    @events = Event.where("player_id = ?", params[:player_id]).where(confirmed?: false)
+  end
+
   def my_attended_games
     @my_attended_games = Game.get_my_attended_games(params[:player_id])
   end
@@ -62,6 +66,6 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:date, :starting_hour, :duration, :address, :zip_code, :city)
+      params.require(:event).permit(:player_id, :game_id, :practice_id, :confirmed?)
     end
 end
