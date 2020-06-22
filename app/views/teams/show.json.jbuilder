@@ -21,6 +21,6 @@ json.club do
     json.arrival @team.creator.arrival
   end
 end
-json.players @team.players, :id, :email, :first_name, :last_name, :phone, :birthdate, :arrival, :availability?, :height, :weight, :gender, :jersey_number, :position
+json.players @team.players, :id, :email, :first_name, :last_name, :phone, :birthdate, :arrival, :availability?, :height, :weight, :gender, :jersey_number, :position, :team_id
 json.games @games, :id, :title, :long_description, :address, :city, :country, :zip_code, :starting_date_time, :duration, :home_team_score, :away_team_score, :canceled
 json.practices @practices, :id, :title, :long_description, :address, :city, :country, :zip_code, :starting_date_time, :duration, :canceled

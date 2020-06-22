@@ -20,4 +20,6 @@ json.array! @teams do |team|
     json.arrival team.coach.arrival
   end
 
+  json.players team.players
+
 end
