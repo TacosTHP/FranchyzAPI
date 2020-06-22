@@ -1,7 +1,6 @@
 class PlayersController < ApplicationController
+	# before_action :authenticate_player!, only: [:update]
 	before_action :set_player, only: [:show, :update, :destroy]
-	before_action :check_auth, only: [:show, :create, :edit, :update, :delete]
-	before_action :decode_token, only: [:create, :edit, :update, :delete]
 
 	def show
 		@player = Player.find(params[:id])

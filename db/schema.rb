@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.string "phone"
     t.date "birthdate"
     t.date "arrival"
-    t.boolean "admin?"
+    t.boolean "admin?", default: false
     t.bigint "club_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.bigint "player_id"
     t.bigint "game_id"
     t.bigint "practice_id"
+    t.boolean "confirmed?", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_events_on_game_id"
