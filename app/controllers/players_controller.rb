@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-	# before_action :authenticate_player!, only: [:update]
+	before_action :authenticate_player!, only: [:update]
 	before_action :set_player, only: [:show, :update, :destroy]
 
 	def show
