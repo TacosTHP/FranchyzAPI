@@ -4,7 +4,6 @@ class GamesController < ApplicationController
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
 
   before_action :set_game, only: [:show, :update, :destroy]
-  before_action :set_team, only: [:index, :show, :update, :destroy]
 
   # GET /games
   def index
@@ -14,7 +13,6 @@ class GamesController < ApplicationController
   # GET /games/1
   def show
     @game
-    @teams = Team.get_game_teams(@game)
   end
 
   # POST /games
@@ -48,10 +46,6 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
-    end
-
-    def set_team
-      @team = Team.find(params[:team_id])
     end
 
     # Only allow a trusted parameter "white list" through.

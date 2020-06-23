@@ -1,2 +1,11 @@
-json.game @game
-json.teams @teams, :title, :coach, :club
+json.game @game.id
+json.title @game.title
+json.long_description @game.long_description
+json.address @game.address
+json.city @game.city
+json.country @game.country
+json.zip_code @game.zip_code
+json.starting_date_time @game.starting_date_time
+json.duration @game.duration
+json.canceled @game.canceled
+json.players @players
