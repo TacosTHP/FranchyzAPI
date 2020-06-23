@@ -315,10 +315,15 @@ Devise.setup do |config|
     jwt.dispatch_requests = [
       ['POST', %r{^/coaches/sign_in.json$}],
       ['POST', %r{^/coaches.json$}],
+      ['POST', %r{^/players/sign_in.json$}],
+      ['POST', %r{^/players.json$}],
+      ['POST', %r{^/clubs.json$}],
+      ['PATCH', %r{^/players/\d+\.json$}]
     ]
 
     jwt.revocation_requests = [
-      ['DELETE', %r{^/coaches/sign_out.json$}]
+      ['DELETE', %r{^/coaches/sign_out.json$}],
+      ['POST', %r{^/clubs.json$}]
     ]
   end
 end

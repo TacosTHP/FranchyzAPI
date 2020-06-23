@@ -1,4 +1,4 @@
-class Coach < ApplicationRecord
+class Player < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,25 +6,19 @@ class Coach < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
 
-
-  has_many :teams
-
-  belongs_to :club, optional: true
-
-  after_create :welcome_send
-
-  def welcome_send
-    CoachMailer.welcome_email(self).deliver_now
-  end
-
+  belongs_to :team
+  has_many :emergency_contacts
+  has_many :events
+  has_many :games, through: :events
+  has_many :practices, through: :events
 
   def jwt_payload
     { 
       'email' => self.email,
       'first_name' => self.first_name,
       'last_name' => self.last_name, 
-      'admin?' => self.admin?, 
-      'club_id' => self.club_id,
+      'team_id' => self.team_id,
+      'club_id' => self.team.club.id
     }
   end
 

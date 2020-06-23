@@ -1,24 +1,26 @@
-# README
+## Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Franchyz API is a Ruby on Rails API for a sport team management app.
 
-Things you may want to cover:
+You should find the React front-end here : https://github.com/TacosTHP/Franchyz
 
-* Ruby version
+## Version
 
-* System dependencies
+Ruby 2.7.1
+Rails 6.0.3.1
 
-* Configuration
+## Installation
 
-* Database creation
+`git clone https://github.com/TacosTHP/FranchyzAPI.git`
 
-* Database initialization
+`cd FranchyzAPI`
 
-* How to run the test suite
+`bundle install`
 
-* Services (job queues, cache servers, search engines, etc.)
+`echo DEVISE_JWT_SECRET_KEY=\"$(rake secret)\" > .env`
 
-* Deployment instructions
+`rails db:create && rails db:migrate`
 
-* ...
+`rails s`
+
+Your API is now running on http://localhost:3000
