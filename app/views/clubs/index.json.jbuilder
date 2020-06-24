@@ -11,6 +11,7 @@ json.array! @clubs do |club|
   json.league club.league
   json.conference club.conference
   json.pool club.pool
+  json.teams club.teams
   
   json.creator do
     json.id club.creator.id
@@ -20,4 +21,5 @@ json.array! @clubs do |club|
     json.birthdate club.creator.birthdate
     json.arrival club.creator.arrival
   end
+  
 end
