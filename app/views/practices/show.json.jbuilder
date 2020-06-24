@@ -1,0 +1,11 @@
+json.id @practice.id
+json.id @practice.title
+json.id @practice.long_description
+json.id @practice.address
+json.id @practice.city
+json.id @practice.country
+json.id @practice.zip_code
+json.id @practice.starting_date_time
+json.id @practice.duration
+json.id @practice.canceled
+json.players @players
