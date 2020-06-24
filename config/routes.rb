@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get '/clubs/:club_id/teams/:team_id/players/:player_id/my_unattended_games', to: 'events#my_unattended_games'
   get '/clubs/:club_id/teams/:team_id/players/:player_id/my_attended_practices', to: 'events#my_attended_practices'
   get '/clubs/:club_id/teams/:team_id/players/:player_id/my_unattended_practices', to: 'events#my_unattended_practices'
+  get '/practices/:id',            to: 'practices#show'
+
 end
