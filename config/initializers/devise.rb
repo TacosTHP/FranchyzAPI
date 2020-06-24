@@ -322,6 +322,7 @@ Devise.setup do |config|
       ['PUT', %r{^/players/\d+\.json$}],
       ['PUT', %r{^/coaches/\d+\.json$}],
       ['PUT', %r{^/clubs/\d+\.json$}],
+      ['PUT', %r{^/clubs/\d+\/teams/\d+\/practices/\d+\.json$}],
     ]
 
     jwt.revocation_requests = [
