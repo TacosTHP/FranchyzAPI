@@ -27,7 +27,7 @@ class PlayersController < ApplicationController
 			:phone,
 			:birthdate,
 			:arrival,
-			:availability,
+			:availability?,
 			:height,
 			:weight,
 			:gender,

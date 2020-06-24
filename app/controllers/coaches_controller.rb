@@ -30,7 +30,7 @@ class CoachesController < ApplicationController
 			:phone,
 			:birthdate,
 			:arrival,
-			:admin,
+			:admin?,
 			:club_id,
 		)
 	end
