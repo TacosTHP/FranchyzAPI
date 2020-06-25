@@ -6,8 +6,8 @@ class CoachesController < ApplicationController
   before_action :authenticate_coach!, only: [:update]
 
   def show
-	  @coach = Coach.find(params[:id])
-		render json: @coach
+    @coach = Coach.find(params[:id])
+    render json: @coach
   end
 
   def update
