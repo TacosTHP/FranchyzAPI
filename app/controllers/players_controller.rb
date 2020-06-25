@@ -21,19 +21,19 @@ class PlayersController < ApplicationController
 	end
 
 	def player_params
-		params.require(:player).permit(
-			:first_name,
-			:last_name,
-			:phone,
-			:birthdate,
-			:arrival,
-			:availability?,
-			:height,
-			:weight,
-			:gender,
-			:jersey_number,
-			:position,
+    params.require(:player).permit(
+      :first_name,
+      :last_name,
+      :phone,
+      :birthdate,
+      :arrival,
+      :availability?,
+      :height,
+      :weight,
+      :gender,
+      :jersey_number,
+      :position,
 			:team_id,
-		)
+    )
 	end
 end
