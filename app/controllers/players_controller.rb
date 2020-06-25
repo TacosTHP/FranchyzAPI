@@ -33,7 +33,7 @@ class PlayersController < ApplicationController
       :gender,
       :jersey_number,
       :position,
-			:team_id,
+      :team_id,
     )
 	end
 end
