@@ -18,24 +18,13 @@ class CoachesController < ApplicationController
     end
   end
 
+
   private
-
-	def set_coach
-		@coach = Coach.find(params[:id])
-	end
-
-	def coach_params
-
-    params.require(:coach).permit(
-      :first_name,
-      :last_name,
-      :phone,
-      :birthdate,
-      :arrival,
-      :admin?,
-      :club_id,
-    )
-
+  def set_coach
+    @coach = Coach.find(params[:id])
   end
 
+  def coach_params
+    params.require(:coach).permit(:first_name, :last_name, :phone, :birthdate, :arrival, :admin?, :club_id)
+  end
 end
