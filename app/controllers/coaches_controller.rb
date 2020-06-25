@@ -18,6 +18,7 @@ class CoachesController < ApplicationController
     end
   end
 
+
   private
   def set_coach
     @coach = Coach.find(params[:id])
