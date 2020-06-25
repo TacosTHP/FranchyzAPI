@@ -11,19 +11,27 @@ class CoachesController < ApplicationController
   end
 
   def update
-		if @coach.update(coach_params)
-			render json: @coach
-		else
-			render json: @coach.errors, status: :unprocessable_entity
-		end
+    if @coach.update(coach_params)
+      render json: @coach
+    else
+      render json: @coach.errors, status: :unprocessable_entity
+    end
   end
 
   private
-	def set_coach
-		@coach = Coach.find(params[:id])
-	end
+  def set_coach
+    @coach = Coach.find(params[:id])
+  end
 
-	def coach_params
-		params.require(:coach).permit(:first_name, :last_name, :phone_number)
-	end
+  def coach_params
+    params.require(:coach).permit(
+      :first_name,
+      :last_name,
+      :phone,
+      :birthdate,
+      :arrival,
+      :admin?,
+      :club_id,
+    )
+  end
 end

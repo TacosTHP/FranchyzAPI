@@ -1,6 +1,5 @@
 class ClubsController < ApplicationController
-
-  before_action :authenticate_coach!, only: [:create]
+  before_action :authenticate_coach!, only: [:create, :update]
   # before_action :check_auth, only: [:create, :edit, :update, :delete]
   # before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
@@ -22,15 +21,11 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1/admin
   def dashboard_admin
-
   end
 
   # POST /clubs
   def create
     @club = Club.new(club_params)
-
-
-
     if @club.save
       coach = Coach.find(current_coach.id)
       coach.update(club_id: @club.id)
