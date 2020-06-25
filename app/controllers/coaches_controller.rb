@@ -26,4 +26,5 @@ class CoachesController < ApplicationController
 	def coach_params
 		params.require(:coach).permit(:first_name, :last_name, :phone, :birthdate, :arrival, :admin?, :club_id)
 	end
+	
 end
