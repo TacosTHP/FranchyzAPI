@@ -1,5 +1,6 @@
 class PracticesController < ApplicationController
   before_action :set_practice, only: [:show, :update, :destroy]
+  before_action :authenticate_coach!, only: [:create, :update]
 
   # GET /practices
   def index
