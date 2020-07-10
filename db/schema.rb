@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_143324) do
+ActiveRecord::Schema.define(version: 2020_07_10_101533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "game_id"
+    t.bigint "practice_id"
+    t.boolean "confirmed?", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_attendances_on_game_id"
+    t.index ["player_id"], name: "index_attendances_on_player_id"
+    t.index ["practice_id"], name: "index_attendances_on_practice_id"
+  end
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -61,18 +73,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_143324) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_emergency_contacts_on_player_id"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.bigint "player_id"
-    t.bigint "game_id"
-    t.bigint "practice_id"
-    t.boolean "confirmed?", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_events_on_game_id"
-    t.index ["player_id"], name: "index_events_on_player_id"
-    t.index ["practice_id"], name: "index_events_on_practice_id"
   end
 
   create_table "games", force: :cascade do |t|
