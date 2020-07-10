@@ -5,11 +5,13 @@ class AttendancesController < ApplicationController
   # GET /attendances.json
   def index
     @attendances = Attendance.all
+    render json: @attendances
   end
 
   # GET /attendances/1
   # GET /attendances/1.json
   def show
+    render json: @attendance
   end
 
   # POST /attendances
@@ -48,6 +50,6 @@ class AttendancesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attendance_params
-      params.fetch(:attendance, {})
+      params.require(:attendance).permit(:player_id, :game_id, :practice_id, :confirmed?)
     end
 end
