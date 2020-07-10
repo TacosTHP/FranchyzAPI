@@ -12,9 +12,9 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   def show
     @club
-    @players = @club.get_players
-    @games = @club.get_games
-    @practices = @club.get_practices
+    @players = @club.retrieve_players
+    @games = @club.retrieve_games
+    @practices = @club.retrieve_practices
     @teams = @club.teams
   end
 
