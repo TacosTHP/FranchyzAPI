@@ -1,6 +1,5 @@
 class ClubsController < ApplicationController
   before_action :authenticate_coach!, only: [:create, :update]
-  # before_action :check_auth, only: [:create, :edit, :update, :delete]
   # before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
   before_action :set_club, only: [:show, :update, :destroy]
@@ -13,14 +12,10 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   def show
     @club
-    @players = Club.get_players(@club)
-    @games = Club.get_games(@club)
-    @practices = Club.get_practices(@club)
+    @players = @club.get_players
+    @games = @club.get_games
+    @practices = @club.get_practices
     @teams = @club.teams
-  end
-
-  # GET /clubs/1/admin
-  def dashboard_admin
   end
 
   # POST /clubs
