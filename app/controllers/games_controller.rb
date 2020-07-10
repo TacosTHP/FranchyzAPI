@@ -1,11 +1,9 @@
 class GamesController < ApplicationController
-  # before_action :check_auth, only: [:show, :mygames, :create, :edit, :update, :delete]
+  before_action :authenticate_coach!, only: [:create, :update]
   # before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
-
   before_action :set_game, only: [:show, :update, :destroy]
   before_action :set_team, only: [:index, :show, :update, :destroy]
-  before_action :authenticate_coach!, only: [:create, :update]
 
   # GET /games
   def index
