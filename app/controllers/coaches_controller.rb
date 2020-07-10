@@ -1,9 +1,8 @@
 class CoachesController < ApplicationController
-  before_action :check_auth, only: [:show, :create, :edit, :update, :delete]
+  before_action :authenticate_coach!, only: [:update]
   before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
   before_action :set_coach, only: [:show, :update, :destroy]
-  before_action :authenticate_coach!, only: [:update]
 
   def show
     @coach = Coach.find(params[:id])
