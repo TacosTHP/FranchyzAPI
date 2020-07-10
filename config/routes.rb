@@ -10,8 +10,7 @@ Rails.application.routes.draw do
       resources :practices
       resources :games
       resources :players do
-        resources :events
-        resources :emergency_contacts
+              resources :emergency_contacts
       end
     end
   end
