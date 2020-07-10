@@ -18,7 +18,7 @@ class EmergencyContactsController < ApplicationController
     @emergency_contact = EmergencyContact.new(emergency_contact_params)
 
     if @emergency_contact.save
-      render json: @emergency_contact, status: :created, location: @emergency_contact
+      render json: @emergency_contact, status: :created
     else
       render json: @emergency_contact.errors, status: :unprocessable_entity
     end

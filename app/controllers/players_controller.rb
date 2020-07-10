@@ -3,7 +3,6 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :update, :destroy]
 
   def show
-    @player = Player.find(params[:id])
     render json: @player
   end
 
