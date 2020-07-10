@@ -5,7 +5,6 @@ class PracticesController < ApplicationController
   # GET /practices
   def index
     @practices = Practice.all
-
     render json: @practices
   end
 
@@ -50,4 +49,3 @@ class PracticesController < ApplicationController
       params.require(:practice).permit(:duration, :address, :zip_code, :city, :title, :long_description, :country, :starting_date_time, :canceled)
     end
 end
-
