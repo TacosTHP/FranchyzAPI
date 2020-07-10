@@ -1,6 +1,5 @@
 class ClubsController < ApplicationController
   before_action :authenticate_coach!, only: [:create, :update]
-  # before_action :check_auth, only: [:create, :edit, :update, :delete]
   # before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]
   before_action :set_club, only: [:show, :update, :destroy]
