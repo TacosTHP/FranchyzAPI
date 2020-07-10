@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attendances
   devise_for :players
   devise_for :coaches
 
@@ -9,13 +10,13 @@ Rails.application.routes.draw do
       resources :practices
       resources :games
       resources :players do
-        resources :events
+        resources :attendances
         resources :emergency_contacts
       end
     end
   end
 
-    # => ADDITIONNAL CLUB ROUTES
+  # => ADDITIONNAL CLUB ROUTES
   get '/clubs/:id/admin',            to: 'club#dashboard_admin'
 
   # => ADDITIONNAL EVENTS ROUTES

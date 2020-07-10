@@ -6,7 +6,7 @@ Player.destroy_all
 Game.destroy_all
 Practice.destroy_all
 EmergencyContact.destroy_all
-Event.destroy_all
+Attendance.destroy_all
 
 puts "Destruction of BDD done"
 
@@ -90,7 +90,7 @@ end
 puts "Emergency contacts have been created"
 
 30.times do
-  Event.create!(player: Player.all.sample, game: Game.all.sample)
-  Event.create!(player: Player.all.sample, practice: Practice.all.sample)
+  Attendance.create!(player: Player.all.sample, game: Game.all.sample)
+  Attendance.create!(player: Player.all.sample, practice: Practice.all.sample)
 end
-puts "Events have been created"
+puts "Attendances have been created"
