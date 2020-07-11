@@ -22,8 +22,7 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     if @club.save
-      coach = Coach.find(current_coach.id)
-      coach.update(club_id: @club.id)
+      current_coach.update(club_id: @club.id)
       render json: @club, status: :created, location: @club
     else
       render json: @club.errors, status: :unprocessable_entity
