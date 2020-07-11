@@ -1,7 +1,7 @@
 class Club < ApplicationRecord
+  belongs_to :creator, class_name: 'Coach'
   has_many :coaches
   has_many :teams
-  belongs_to :creator, class_name: 'Coach'
 
   def retrieve_players
     Player.joins(:team).where('club_id = ?', self.id)
