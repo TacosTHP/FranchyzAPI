@@ -1,8 +1,8 @@
 class Practice < ApplicationRecord
-	has_many :events
-	has_many :players, through: :events
+  has_many :attendances
+  has_many :players, through: :attendances
 
-	def self.get_team_practices(team)
+  def self.get_team_practices(team)
     players_ids = []
     team.players.each do |player|
       players_ids << player.id
@@ -11,11 +11,11 @@ class Practice < ApplicationRecord
     return practices
   end
 
-	def self.get_my_attended_practices(id)
-    Practice.joins(:events).where(events: { confirmed?: true }).where('player_id = ?', id)
+  def self.get_my_attended_practices(id)
+    Practice.joins(:attendances).where(attendances: { confirmed?: true }).where('player_id = ?', id)
   end
 
-	def self.get_my_unattended_practices(id)
-		Practice.joins(:events).where(events: { confirmed?: false }).where('player_id = ?', id)
-	end
+  def self.get_my_unattended_practices(id)
+    Practice.joins(:attendances).where(attendances: { confirmed?: false }).where('player_id = ?', id)
+  end
 end
