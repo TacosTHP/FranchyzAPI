@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
-    has_many :events
-    has_many :players, through: :events
+    has_many :attendances
+    has_many :players, through: :attendances
 
   def self.get_team_games(team)
     players_ids = []
@@ -12,10 +12,10 @@ class Game < ApplicationRecord
   end
 
   def self.get_my_attended_games(id)
-    Game.joins(:events).where(events: { confirmed?: true }).where('player_id = ?', id)
+    Game.joins(:attendances).where(attendances: { confirmed?: true }).where('player_id = ?', id)
   end
 
   def self.get_my_unattended_games(id)
-    Game.joins(:events).where(events: { confirmed?: false }).where('player_id = ?', id)
+    Game.joins(:attendances).where(attendances: { confirmed?: false }).where('player_id = ?', id)
   end
 end
