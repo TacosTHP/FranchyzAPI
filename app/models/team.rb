@@ -4,8 +4,7 @@ class Team < ApplicationRecord
   belongs_to  :club
   has_many    :players
 
-  def self.get_game_teams(game)
-    teams = Team.joins(players: :games).where(games: {id: game.id})
-    return teams
+  def retrieve_games
+    Game.joins(players: :team).where('team_id = ?', self.id)
   end
 end

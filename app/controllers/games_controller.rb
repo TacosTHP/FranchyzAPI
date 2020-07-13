@@ -7,19 +7,18 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    @games = Game.get_team_games(@team)
+    @games = @team.retrieve_games
   end
 
   # GET /games/1
   def show
     @game
-    @teams = Team.get_game_teams(@game)
+    @teams = @game.retrieve_teams
   end
 
   # POST /games
   def create
     @game = Game.new(game_params)
-
     if @game.save
       render json: @game, status: :created
     else
