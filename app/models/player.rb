@@ -12,11 +12,20 @@ class Player < ApplicationRecord
   has_many :games, through: :attendances
   has_many :practices, through: :attendances
 
+  def retrieve_attendances
+    games = self.games
+    practices = self.practices
+    {
+      games: games,
+      practices: practices
+    }
+  end
+
   def jwt_payload
-    { 
+    {
       'email' => self.email,
       'first_name' => self.first_name,
-      'last_name' => self.last_name, 
+      'last_name' => self.last_name,
       'team_id' => self.team_id,
       'club_id' => self.team.club.id
     }
