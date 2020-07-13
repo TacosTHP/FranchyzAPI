@@ -5,7 +5,6 @@ class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :update, :destroy]
 
   def show
-    @coach = Coach.find(params[:id])
     render json: @coach
   end
 

@@ -6,11 +6,9 @@ class Coach < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
 
-
-  has_many :teams
-
   belongs_to :club, optional: true
-
+  has_many :teams
+  
   after_create :welcome_send
 
   def welcome_send
@@ -19,11 +17,11 @@ class Coach < ApplicationRecord
 
 
   def jwt_payload
-    { 
+    {
       'email' => self.email,
       'first_name' => self.first_name,
-      'last_name' => self.last_name, 
-      'admin?' => self.admin?, 
+      'last_name' => self.last_name,
+      'admin?' => self.admin?,
       'club_id' => self.club_id,
     }
   end

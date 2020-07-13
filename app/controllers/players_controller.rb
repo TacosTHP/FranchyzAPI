@@ -3,7 +3,9 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :update, :destroy]
 
   def show
-    render json: @player
+    @player
+    @team = @player.team
+    @attendances = @player.retrieve_attendances
   end
 
   def update

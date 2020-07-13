@@ -4,7 +4,6 @@ class EmergencyContactsController < ApplicationController
   # GET /emergency_contacts
   def index
     @emergency_contacts = EmergencyContact.all
-
     render json: @emergency_contacts
   end
 
@@ -16,7 +15,6 @@ class EmergencyContactsController < ApplicationController
   # POST /emergency_contacts
   def create
     @emergency_contact = EmergencyContact.new(emergency_contact_params)
-
     if @emergency_contact.save
       render json: @emergency_contact, status: :created
     else
