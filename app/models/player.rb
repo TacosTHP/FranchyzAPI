@@ -8,9 +8,9 @@ class Player < ApplicationRecord
 
   belongs_to :team
   has_many :emergency_contacts
-  has_many :events
-  has_many :games, through: :events
-  has_many :practices, through: :events
+  has_many :attendances
+  has_many :games, through: :attendances
+  has_many :practices, through: :attendances
 
   def jwt_payload
     { 

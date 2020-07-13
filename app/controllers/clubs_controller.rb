@@ -13,9 +13,8 @@ class ClubsController < ApplicationController
   def show
     @club
     @players = @club.retrieve_players
-    @games = @club.retrieve_games
-    @practices = @club.retrieve_practices
     @teams = @club.teams
+    @attendances = @club.retrieve_attendances
   end
 
   # POST /clubs
