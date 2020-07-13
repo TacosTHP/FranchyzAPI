@@ -10,13 +10,13 @@ class PracticesController < ApplicationController
 
   # GET /practices/1
   def show
-    render json: @practice
+    @practice
+    @players = @practice.players
   end
 
   # POST /practices
   def create
     @practice = Practice.new(practice_params)
-
     if @practice.save
       render json: @practice, status: :created
     else
