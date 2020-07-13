@@ -18,7 +18,6 @@ class AttendancesController < ApplicationController
   # POST /attendances.json
   def create
     @attendance = Attendance.new(attendance_params)
-
     if @attendance.save
       render :show, status: :created, location: @attendance
     else
