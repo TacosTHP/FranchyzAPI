@@ -1,4 +1,6 @@
-json.team @team
-json.team_club @club
-json.team_players @players
-json.team_attendances @attendances
+json.title @team.title
+json.coach_id @team.coach_id
+json.creator_id @team.creator_id
+json.club @team.club
+json.players @team.players
+json.attendances @attendances
