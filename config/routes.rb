@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  scope 'api/v1', :defaults => { :format => 'json' } do
+    devise_for :players
+    devise_for :coaches
+  end
+
   namespace :api do
     namespace :v1 do
-      devise_for :players
-      devise_for :coaches
       resources :coaches, except: [:new, :create, :destroy]
       resources :attendances
       resources :practices
