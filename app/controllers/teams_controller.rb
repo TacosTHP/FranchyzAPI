@@ -9,8 +9,6 @@ class TeamsController < ApplicationController
   # GET /teams/1
   def show
     @team
-    @club = @team.club
-    @players = @team.players
     @attendances = @team.retrieve_attendances
   end
 
