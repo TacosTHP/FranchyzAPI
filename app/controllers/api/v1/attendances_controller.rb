@@ -1,4 +1,4 @@
-class AttendancesController < ApplicationController
+class Api::V1::AttendancesController < ApplicationController
   before_action :set_attendance, only: [:show, :update, :destroy]
 
   # GET /attendances

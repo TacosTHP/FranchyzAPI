@@ -1,4 +1,4 @@
-class TeamsController < ApplicationController
+class Api::V1::TeamsController < ApplicationController
   before_action :set_team, only: [:show, :update, :destroy]
 
   # GET /teams
@@ -9,8 +9,6 @@ class TeamsController < ApplicationController
   # GET /teams/1
   def show
     @team
-    @club = @team.club
-    @players = @team.players
     @attendances = @team.retrieve_attendances
   end
 
