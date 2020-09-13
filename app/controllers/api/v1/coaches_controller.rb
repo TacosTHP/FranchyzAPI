@@ -1,4 +1,4 @@
-class CoachesController < ApplicationController
+class Api::V1::CoachesController < ApplicationController
   before_action :authenticate_coach!, only: [:update]
   before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]

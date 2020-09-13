@@ -1,4 +1,5 @@
 class EmergencyContactsController < ApplicationController
+class Api::V1::EmergencyContactsController < ApplicationController
   before_action :set_emergency_contact, only: [:show, :update, :destroy]
 
   # GET /emergency_contacts

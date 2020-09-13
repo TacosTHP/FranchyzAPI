@@ -1,4 +1,4 @@
-class ClubsController < ApplicationController
+class Api::V1::ClubsController < ApplicationController
   before_action :authenticate_coach!, only: [:create, :update]
   # before_action :decode_token, only: [:create, :edit, :update, :delete]
   # before_action :check_admin, only: [:create, :edit, :update, :delete]

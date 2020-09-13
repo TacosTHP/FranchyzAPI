@@ -1,4 +1,4 @@
-class PracticesController < ApplicationController
+class Api::V1::PracticesController < ApplicationController
   before_action :set_practice, only: [:show, :update, :destroy]
   before_action :authenticate_coach!, only: [:create, :update]
 

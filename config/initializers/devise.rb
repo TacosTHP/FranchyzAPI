@@ -313,10 +313,10 @@ Devise.setup do |config|
     jwt.expiration_time = 1.day.to_i
 
     jwt.dispatch_requests = [
-      ['POST', %r{^/coaches/sign_in.json$}],
-      ['POST', %r{^/coaches.json$}],
-      ['POST', %r{^/players/sign_in.json$}],
-      ['POST', %r{^/players.json$}],
+      ['POST', %r{^/api/v\d/coaches/sign_in.json$}],
+      ['POST', %r{^/api/v\d/coaches.json$}],
+      ['POST', %r{^/api/v\d/players/sign_in.json$}],
+      ['POST', %r{^/api/v\d/players.json$}],
       ['PATCH', %r{^/players/\d+\.json$}],
       ['PUT', %r{^/players/\d+\.json$}],
       ['PUT', %r{^/coaches/\d+\.json$}],
