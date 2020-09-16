@@ -22,7 +22,7 @@ class Api::V1::ClubsController < ApplicationController
     @club = Club.new(club_params)
     if @club.save
       current_coach.update(club_id: @club.id)
-      render json: @club, status: :created, location: @club
+      render json: @club, status: :created
     else
       render json: @club.errors, status: :unprocessable_entity
     end
