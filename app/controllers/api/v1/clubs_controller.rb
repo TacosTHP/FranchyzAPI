@@ -12,9 +12,7 @@ class Api::V1::ClubsController < ApplicationController
   # GET /clubs/1
   def show
     @club
-    @players = @club.retrieve_players
     @teams = @club.teams
-    @attendances = @club.retrieve_attendances
   end
 
   # POST /clubs
