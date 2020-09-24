@@ -13,9 +13,9 @@ json.pool @club.pool
 json.teams @teams do |team|
   json.id team.id
   json.title team.title
-  json.coach_id team.coach_id
   json.creator_id team.creator_id
   json.club_id team.club_id
+  json.coach team.coach
   json.players team.players
   json.attendances team.retrieve_attendances
 end
