@@ -41,19 +41,19 @@ Bob.save
 puts "Clubs have been created"
 
 
-3.times do
+5.times do
   Team.create!(title: Faker::Team.name, creator: Juan, coach: Juan, club: ClubByJuan)
 end
 
-3.times do
+5.times do
   Team.create!(title: Faker::Team.name, creator: John, coach: John, club: ClubByJohn)
 end
 
-3.times do
+5.times do
   Team.create!(title: Faker::Team.name, creator: Jack, coach: Jack, club: ClubByJack)
 end
 
-3.times do
+5.times do
   Team.create!(title: Faker::Team.name, creator: Bob, coach: Bob, club: ClubByBob)
 end
 
@@ -73,7 +73,7 @@ puts "Games have been created"
 
 100.times do
   Player.create!(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, birthdate: Faker::Date.birthday(min_age: 15, max_age: 65),
-  password: "password", availability?: true, height: Faker::Number.between(from: 170, to: 200), weight: Faker::Number.between(from: 70, to: 90), jersey_number: Faker::Number.between(from: 1, to: 99), position: Faker::Number.between(from: 1, to: 11), arrival: Faker::Date.backward(days: 60), gender: Faker::Gender.short_binary_type, team: Team.all.sample)
+  password: "password", availability?: Faker::Boolean.boolean, height: Faker::Number.between(from: 170, to: 200), weight: Faker::Number.between(from: 70, to: 90), jersey_number: Faker::Number.between(from: 1, to: 99), position: Faker::Number.between(from: 1, to: 11), arrival: Faker::Date.backward(days: 60), gender: Faker::Gender.short_binary_type, team: Team.all.sample)
 end
 
 puts "Players have been created"
