@@ -10,6 +10,12 @@ json.date_of_creation @club.date_of_creation
 json.league @club.league
 json.conference @club.conference
 json.pool @club.pool
-json.players @players
-json.teams @teams
-json.attendances @attendances
+json.teams @teams do |team|
+  json.id team.id
+  json.title team.title
+  json.coach_id team.coach_id
+  json.creator_id team.creator_id
+  json.club_id team.club_id
+  json.players team.players
+  json.attendances team.retrieve_attendances
+end
