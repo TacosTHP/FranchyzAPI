@@ -17,6 +17,7 @@ json.teams @teams do |team|
   json.club_id team.club_id
   json.coach team.coach
   json.players team.players do |player|
+    json.availability? player.availability?
     json.attendances player.retrieve_attendances
   end
 end
