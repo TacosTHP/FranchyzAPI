@@ -93,4 +93,14 @@ puts "Emergency contacts have been created"
   Attendance.create!(player: Player.all.sample, game: Game.all.sample)
   Attendance.create!(player: Player.all.sample, practice: Practice.all.sample)
 end
+
+Team.all.each do |team|
+  game = Game.all.sample
+  practice = Practice.all.sample
+  team.players.each do |player|
+    Attendance.create!(player: player, game: game)
+    Attendance.create!(player: player, practice: practice)
+  end
+end
+
 puts "Attendances have been created"
